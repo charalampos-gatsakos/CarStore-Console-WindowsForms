@@ -38,7 +38,17 @@ namespace CarShopConsoleApp
 
                     // add to cart
                     case 2:
-                        Console.WriteLine("You choose to add a car to you");
+                        Console.WriteLine("You choose to add a car to your shopping cart");
+                        printInventory(s);
+                        Console.WriteLine("Which item would you like to buy? (number)");
+                        int carChose = int.Parse(Console.ReadLine());
+                        s.ShoppingList.Add(s.CarList[carChose]);
+                        printShoppingCart(s);
+                        break;
+                    //chekout
+                    case 3:
+                        printShoppingCart(s);
+                        Console.WriteLine("The total cost of your item is : " + s.Checkout());
 
 
                         break;
@@ -48,11 +58,20 @@ namespace CarShopConsoleApp
            
         }
 
+        private static void printShoppingCart(Store s)
+        {
+
+            for (int i = 0; i < s.CarList.Count; i++)
+            {
+                Console.WriteLine("Car # " + i + " " + s.CarList[i]);
+            }
+        }
+
         private static void printInventory(Store s)
         {
-            foreach(Car c in s.CarList)
+            for(int i = 0; i < s.CarList.Count; i++)
             {
-                Console.WriteLine("Car: " + c.Brand + " " + c.Model + " " + c.Price);
+                Console.WriteLine("Car # " + i + " " + s.CarList[i]);
             }
         }
 

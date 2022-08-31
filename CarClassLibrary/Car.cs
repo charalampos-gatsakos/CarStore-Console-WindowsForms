@@ -25,7 +25,7 @@ namespace CarClassLibrary
 
         override public string ToString()
         {
-            return "Make:" + Brand + "Model" + Model + "Price: $" + Price;
+            return "Brand : " + Brand + " Model " + Model + " Price: $" + Price;
         }
 
     }
